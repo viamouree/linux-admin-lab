@@ -38,3 +38,9 @@ for t in ${TABLES}; do
 done
 
 echo "OK: ${DB_NAME} backup at ${TS} -> ${OUT_DIR}"
+
+
+# keep only last 1 day (optional)
+find "${OUT_DIR}" -type f -name "*.sql.gz" -mmin +1440 -delete || true
+find "${OUT_DIR}" -type f -name "*_META.txt" -mmin +1440 -delete || true
+
