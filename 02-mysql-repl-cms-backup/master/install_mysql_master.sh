@@ -16,8 +16,13 @@ EOF
 
 sudo systemctl restart mysql
 
-sudo mysql <<EOF
-CREATE USER 'repl'@'192.168.118.%' IDENTIFIED BY 'replpass';
-GRANT REPLICATION SLAVE ON *.* TO 'repl'@'192.168.118.%';
+sudo mysql <<'EOF'
+CREATE USER IF NOT EXISTS 'repl'@'192.168.118.%'
+  IDENTIFIED WITH mysql_native_password BY 'replpass';
+
+ALTER USER 'repl'@'192.168.118.%'
+  IDENTIFIED WITH mysql_native_password BY 'replpass';
+
+GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'repl'@'192.168.118.%';
 FLUSH PRIVILEGES;
 EOF
