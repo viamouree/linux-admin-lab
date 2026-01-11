@@ -1,0 +1,1 @@
+*/2 * * * * root /opt/backup_tables.sh labdb >> /var/log/mysql_table_backup.log 2>&1
