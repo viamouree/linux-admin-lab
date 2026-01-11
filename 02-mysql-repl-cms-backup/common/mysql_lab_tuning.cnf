@@ -1,0 +1,6 @@
+[mysqld]
+# Lab-safe values to avoid replication issues with large events
+max_allowed_packet=256M
+
+# Good practice for replication
+binlog_expire_logs_seconds=604800
