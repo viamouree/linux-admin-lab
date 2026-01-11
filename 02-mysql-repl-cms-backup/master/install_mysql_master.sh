@@ -40,3 +40,6 @@ sudo mysql labdb -e "INSERT INTO messages(txt) VALUES('master init');"
 
 echo "[MASTER] OK"
 echo "Run on master to see coordinates: sudo mysql -e \"SHOW MASTER STATUS\\G\""
+sudo mysql -e "CREATE DATABASE IF NOT EXISTS labdb;"
+sudo mysql -e "CREATE TABLE IF NOT EXISTS labdb.messages(id INT AUTO_INCREMENT PRIMARY KEY, txt VARCHAR(100), created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);"
+sudo mysql -e "INSERT INTO labdb.messages(txt) VALUES('master init');"
