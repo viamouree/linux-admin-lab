@@ -16,7 +16,7 @@
       backup_mysql_tables_with_binlog.sh
       cron_mysql_backup
 
-     wordpress/
+   wordpress/
       install_wordpress_on_master.sh
 
   03-monitoring/
