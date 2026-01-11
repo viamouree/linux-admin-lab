@@ -1,2 +1,0 @@
-# Daily backup of labdb from MySQL slave with binlog position
-10 3 * * * root /opt/backup_mysql_tables_with_binlog.sh labdb >> /var/log/mysql_backup.log 2>&1
